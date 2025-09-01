@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>וורדל עברי</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>וורדל עברי</h1>
+            <p class="subtitle">נחש מילה בת 3 אותיות ב-6 נסיונות</p>
+        </header>
+
+        <main>
+            <div class="game-board">
+                <div class="row" data-row="0">
+                    <div class="cell" data-col="0"></div>
+                    <div class="cell" data-col="1"></div>
+                    <div class="cell" data-col="2"></div>
+                </div>
+                <div class="row" data-row="1">
+                    <div class="cell" data-col="0"></div>
+                    <div class="cell" data-col="1"></div>
+                    <div class="cell" data-col="2"></div>
+                </div>
+                <div class="row" data-row="2">
+                    <div class="cell" data-col="0"></div>
+                    <div class="cell" data-col="1"></div>
+                    <div class="cell" data-col="2"></div>
+                </div>
+                <div class="row" data-row="3">
+                    <div class="cell" data-col="0"></div>
+                    <div class="cell" data-col="1"></div>
+                    <div class="cell" data-col="2"></div>
+                </div>
+                <div class="row" data-row="4">
+                    <div class="cell" data-col="0"></div>
+                    <div class="cell" data-col="1"></div>
+                    <div class="cell" data-col="2"></div>
+                </div>
+                <div class="row" data-row="5">
+                    <div class="cell" data-col="0"></div>
+                    <div class="cell" data-col="1"></div>
+                    <div class="cell" data-col="2"></div>
+                </div>
+            </div>
+
+            <div class="keyboard">
+                <div class="keyboard-row">
+                    <button class="key" data-key="ש">ש</button>
+                    <button class="key" data-key="ק">ק</button>
+                    <button class="key" data-key="ר">ר</button>
+                    <button class="key" data-key="א">א</button>
+                    <button class="key" data-key="ט">ט</button>
+                    <button class="key" data-key="ו">ו</button>
+                    <button class="key" data-key="נ">נ</button>
+                    <button class="key" data-key="מ">מ</button>
+                    <button class="key" data-key="פ">פ</button>
+                </div>
+                <div class="keyboard-row">
+                    <button class="key" data-key="ד">ד</button>
+                    <button class="key" data-key="ג">ג</button>
+                    <button class="key" data-key="כ">כ</button>
+                    <button class="key" data-key="ע">ע</button>
+                    <button class="key" data-key="י">י</button>
+                    <button class="key" data-key="ח">ח</button>
+                    <button class="key" data-key="ל">ל</button>
+                    <button class="key" data-key="ך">ך</button>
+                    <button class="key" data-key="ף">ף</button>
+                </div>
+                <div class="keyboard-row">
+                    <button class="key" data-key="ז">ז</button>
+                    <button class="key" data-key="ס">ס</button>
+                    <button class="key" data-key="ב">ב</button>
+                    <button class="key" data-key="ה">ה</button>
+                    <button class="key" data-key="צ">צ</button>
+                    <button class="key" data-key="ת">ת</button>
+                    <button class="key" data-key="ץ">ץ</button>
+                    <button class="key" data-key="ן">ן</button>
+                    <button class="key" data-key="ם">ם</button>
+                </div>
+                <div class="keyboard-row keyboard-row--actions">
+                    <button class="key key--action" data-key="enter">הזן</button>
+                    <button class="key key--action" data-key="backspace">מחק</button>
+                </div>
+            </div>
+        </main>
+
+        <div class="message-container">
+            <div id="message" class="message hidden"></div>
+        </div>
+
+        <div class="game-controls">
+            <button class="btn btn--secondary" id="new-game">משחק חדש</button>
+            <button class="btn btn--outline" id="how-to-play">איך לשחק</button>
+        </div>
+    </div>
+
+    <!-- Instructions Modal -->
+    <div class="modal hidden" id="instructions-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>איך לשחק</h2>
+                <button class="modal-close" id="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="instruction">
+                    <h3>המטרה:</h3>
+                    <p>נחש את המילה העברית בת 3 האותיות ב-6 נסיונות</p>
+                </div>
+                <div class="instruction">
+                    <h3>כללים:</h3>
+                    <ul>
+                        <li>כל ניחוש חייב להיות מילה בת 3 אותיות</li>
+                        <li>אותיות סופיות (ך, ם, ן, ף, ץ) יופיעו אוטומטית במקום האחרון</li>
+                        <li>לחץ "הזן" כדי להגיש את הניחוש</li>
+                    </ul>
+                </div>
+                <div class="instruction">
+                    <h3>משוב צבעוני בתאים:</h3>
+                    <div class="color-guide">
+                        <div class="color-example">
+                            <div class="cell cell--correct">א</div>
+                            <span>האות נכונה ובמקום הנכון - התא הופך ירוק</span>
+                        </div>
+                        <div class="color-example">
+                            <div class="cell cell--partial">ב</div>
+                            <span>האות במילה אבל במקום שגוי - התא הופך כתום</span>
+                        </div>
+                        <div class="color-example">
+                            <div class="cell cell--wrong">ג</div>
+                            <span>האות לא נמצאת במילה - התא הופך אפור</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="instruction">
+                    <h3>דוגמאות מילים:</h3>
+                    <p>אבא, בית, דוד, זהב, חור, כלב, מים, נחש, סוס, עור, פרח, צבע, קול, רוח, שמש, תור</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
